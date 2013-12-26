@@ -16,8 +16,8 @@
 //= require_tree .
 
 
-function displayNote(uid){
-	var element =document.getElementById('content');
+function displayNote(eid, uid){
+	var element =document.getElementById(eid);
 	element.innerHTML= "<iframe src =\"/notes/"+uid+"\" ></iframe>";
 	return false;
 }

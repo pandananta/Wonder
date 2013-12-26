@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Wonder</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	  <%= stylesheet_link_tag    "bootstrap.min", media: "all", "data-turbolinks-track" => true %>
 	  <%= stylesheet_link_tag    "bootstrap-theme.min", media: "all", "data-turbolinks-track" => true %>
 
@@ -18,12 +19,33 @@
 		h2{
 			font-size: 40px;
 		}
+		a{
+			color:black;
+		}
+		a:hover{
+			color:grey;
+			text-decoration: none;
+		}
   	</style>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
 </head>
 <body>
 	<div id = "show">
 		<h1><%= @note["prompt"] %></h1>
 		<h2><%= @note["body"] %></h2>
+		<h3>Linked notes</h3>
+		<ul>
+			<% @linked_notes.each do |n|%>
+				<%= link_to_function "<li>#{n[0]}</li>".html_safe, "displayNote('show', \"#{n[1]}\")" %>
+			<% end %>
+		</ul>
+		<h3>Suggested notes</h3>
+		<ul>
+			<% @suggested_notes.each do |n|%>
+				<%= link_to_function "<li>#{n[1]}</li>".html_safe,  "displayNote('show', \"#{n[2]}\")" %>
+			<% end %>
+		</ul>
 	</div>
 </body>
 </html>
