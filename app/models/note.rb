@@ -57,6 +57,9 @@ class Note
 	end
 
 	def suggest
+		# 122ba7f3f8
+		puts "hello"
+		puts uid
 		@@neo.execute_query(
 			"
 			START n = node(*) 

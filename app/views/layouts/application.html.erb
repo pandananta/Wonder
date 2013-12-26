@@ -3,12 +3,26 @@
 <head>
   <title>Wonder</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "bootstrap.min" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div id = "notebook">
+	<div class = "titles">
+		<%= link_to "<h1>Wonder</h1>".html_safe, root_path, :id => 'logo' %>
+	</div>
+	<h4>My Notebook</h4>
+	<ul>
+	<% @notes.each do |n|%>
+		<%= link_to_function "<li>#{n[0]["data"]["body"]}</li>".html_safe,  "displayNote(\"#{n[0]["data"]["uid"]}\")" %>
+	<% end %>
+	</ul>
+</div>
+<div id = "content">
+	<%= yield %>
+</div>
 
 </body>
 </html>

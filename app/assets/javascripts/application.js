@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function displayNote(uid){
+	var element =document.getElementById('content');
+	element.innerHTML= "<iframe src =\"/notes/"+uid+"\" ></iframe>";
+	return false;
+}

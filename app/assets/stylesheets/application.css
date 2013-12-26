@@ -10,4 +10,81 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap.min
+ *= require bootstrap-theme.min
  */
+
+html{height:100%;}
+body{height:100%;margin:0;	background-color: #4c8ae8;}
+.titles{
+	text-align: center;
+}
+
+#notebook{
+	background-color: lightgrey;
+	width:20%;
+	height:100%;
+	float:left;
+	position: fixed;
+	overflow-x: scroll;
+}
+
+#content {
+	margin-left:20%;
+    background-color: #4c8ae8;
+    top:0;
+    height:100%;
+    width:80%;
+    position:absolute;
+    padding:10px;
+    text-align: center;
+}
+
+#create{
+	width:500px;
+	height: 70px;
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+#logo{
+	color:black;
+}
+
+iframe{
+	width: 100%;
+	border-top: #c00 0px dotted;
+  	border-right: #c00 0px dotted;
+  	border-left: #c00 0px dotted;
+  	border-bottom: #c00 0px dotted;
+  	background-color: #4c8ae8;
+  	min-height: 100%;
+}
+
+ul{
+	margin-left: 0px;
+	padding: 0;
+}
+li{
+	list-style-type: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#notebook a:hover{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+li:hover{
+	background-color: grey;
+	color:lightgrey;
+}
