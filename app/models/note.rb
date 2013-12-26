@@ -42,7 +42,29 @@ class Note
 				RETURN r", {
 					"uid" => uid,
 					"str" => cur
+				})
+			@@neo.execute_query(
+				"
+				MATCH (a:Note),(b:Word)
+				WHERE a.uid = {uid} 
+				AND b.str = {str}
+				CREATE (b)-[r:comprises]->(a)
+				RETURN r", {
+					"uid" => uid,
+					"str" => cur
 			})
 		end
+	end
+
+	def suggest
+		@@neo.execute_query(
+			"
+			START n = node(*) 
+			WHERE n.uid = {uid}
+			MATCH n-[:contains]->friend-[:comprises]->friend_of_friend  
+			RETURN collect(friend.str), friend_of_friend.body
+			", {
+				"uid" => uid
+			})
 	end
 end
