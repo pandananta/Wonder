@@ -32,7 +32,7 @@ class NotesController < ApplicationController
     
     respond_to do |format|
       if @note.save
-        format.html { redirect_to "/notes/{@note.uid}"}
+        format.html { redirect_to "/"}
       else
         format.html { render action: "new" }
       end

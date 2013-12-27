@@ -1,7 +1,9 @@
 class Note
 	attr_accessor :uid, :prompt, :body
+	
 
 	def save
+		@@neo ||= Neography::Rest.new
 		nnode = nil
 		if uid
 			@@neo.execute_query(

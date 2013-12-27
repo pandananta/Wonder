@@ -2,6 +2,7 @@ class Word
 	attr_accessor :str
 
 	def save
+		@@neo ||= Neography::Rest.new
 		node = @@neo.execute_query(
 			"
 			MATCH (w:Word)
