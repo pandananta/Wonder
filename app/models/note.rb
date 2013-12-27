@@ -4,7 +4,7 @@ class Note
 	def save
 		nnode = nil
 		if uid
-			nnode = @@neo.execute_query(
+			@@neo.execute_query(
 				"
 				MATCH (n:Note)
 				WHERE n.uid = {uid}
@@ -18,7 +18,7 @@ class Note
 				})
 		else
 			self.uid = SecureRandom.hex(5)
-			nnode = @@neo.execute_query(
+			@@neo.execute_query(
 				"
 				CREATE (n:Note {uid : {uid}, prompt : {prompt}, body : {body}})
 				RETURN n
@@ -32,7 +32,7 @@ class Note
 		words.each do |cur|
 			w = Word.new
 			w.str = cur
-			wnode = w.save
+			w.save
 			@@neo.execute_query(
 				"
 				MATCH (a:Note),(b:Word)

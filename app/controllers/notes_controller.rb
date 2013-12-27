@@ -25,10 +25,13 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(params[:note])
+    @note = Note.new
+    @note.prompt = params[:note]["prompt"] 
+    @note.body = params[:note]["body"] 
+    # = Note.new(params[:note])
     
     respond_to do |format|
-      if @story.save
+      if @note.save
         format.html { redirect_to "/notes/{@note.uid}"}
       else
         format.html { render action: "new" }
