@@ -63,7 +63,7 @@ iframe{
   	border-left: #c00 0px dotted;
   	border-bottom: #c00 0px dotted;
   	background-color: #4c8ae8;
-  	min-height: 100%;
+  	min-height: 100%;s
 }
 
 ul{
@@ -87,4 +87,11 @@ a:hover{
 li:hover{
 	background-color: grey;
 	color:lightgrey;
+}
+
+.linked{
+	color:black;
+}
+.linked:hover{
+	text-decoration: none;
 }
