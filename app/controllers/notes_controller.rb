@@ -22,21 +22,19 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
   def create
     @note = Note.new(params[:note])
-
+    
     respond_to do |format|
-      if @note.save
-        format.html { redirect_to "/"}
+      if @story.save
+        format.html { redirect_to "/notes/{@note.uid}"}
       else
         format.html { render action: "new" }
       end
     end
+
   end
 
   def edit
