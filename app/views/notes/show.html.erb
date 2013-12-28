@@ -3,18 +3,26 @@
 	<h2><%= @note["body"] %></h2>
 	<div class = "linked-container">	
 		<h3>Linked notes</h3>
-		<ul>
-			<% @linked_notes.each do |n|%>
-				<%= link_to "<li>#{n[0]}</li>".html_safe, "/notes/#{n[1]}", :class => "linked" %>
-			<% end %>
-		</ul>
+		<% if @linked_notes.empty? %>
+			<p style="font-style:italic;">None yet. Add some!</p>
+		<% else %>
+			<ul>
+				<% @linked_notes.each do |n|%>
+					<%= link_to "<li>#{n[0]}</li>".html_safe, "/notes/#{n[1]}", :class => "linked" %>
+				<% end %>
+			</ul>
+		<% end %>
 	</div>
 	<div class = "linked-container">	
 		<h3>Suggested notes</h3>
-		<ul>
-			<% @suggested_notes.each do |n|%>
-				<%= link_to "<li>#{n[1]}</li>".html_safe,  "/notes/#{n[2]}", :class => "linked" %>
-			<% end %>
-		</ul>
+		<% if @suggested_notes.empty? %>
+			<p>There are no similar notes. Why don't you write some?</p>
+		<% else %>
+			<ul>
+				<% @suggested_notes.each do |n|%>
+					<%= link_to "<li>#{n[1]}</li>".html_safe,  "/notes/#{n[2]}", :class => "linked" %>
+				<% end %>
+			</ul>
+		<% end %>
 	</div>	
 </div>

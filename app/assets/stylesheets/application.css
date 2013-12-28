@@ -75,6 +75,7 @@ li{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 15px;
+
 }
 
 #notebook a:hover{
@@ -98,11 +99,16 @@ li:hover{
 }
 
 .linked-container{
-	border:2px solid;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+.linked li{
+	border:1px solid;
+	border-color:black;
+	margin-bottom: 10px;
 }
 
 .note-form{
