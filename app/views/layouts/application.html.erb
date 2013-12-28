@@ -16,7 +16,7 @@
 	<h4>My Notebook</h4>
 	<ul>
 	<% @notes.each do |n|%>
-		<%= link_to "<li>#{n[0]["data"]["body"]}</li>".html_safe,  "/notes/#{n[0]["data"]["uid"]}" %>
+		<%= link_to "<li>#{n[0]["data"]["prompt"]}</li>".html_safe,  "/notes/#{n[0]["data"]["uid"]}" %>
 	<% end %>
 	</ul>
 </div>
