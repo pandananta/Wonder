@@ -1,5 +1,17 @@
 <div class="container">
-	<div class ="page">
-		<%= render 'form' %>
+	<div class ="note-form">
+		<h1>Create a new note</h1>
+		<form action="/notes"  class="new_note" id="new_note" method="post">
+		  <div style="margin:0;padding:0;display:inline">
+		    <input name="authenticity_token" type="hidden" value= <%= form_authenticity_token %> />
+		  </div>
+		  <label for="prompt">Title</label><br />
+		  <input id="prompt" name="note[prompt]" type="text" size="75" /><br />
+
+		  <label for="body">Note</label><br />
+		  <textarea id="body" name="note[body]" cols="75" rows="12" /></textarea><br />
+
+		  <input name="commit" type="submit" value="Submit" />
+		</form>
 	</div>
 </div>

@@ -95,3 +95,14 @@ li:hover{
 .linked:hover{
 	text-decoration: none;
 }
+
+.linked-container{
+	border:2px solid;
+	margin-bottom: 20px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.note-form{
+	margin-top:60px;
+}
