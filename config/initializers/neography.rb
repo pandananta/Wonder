@@ -1,7 +1,7 @@
 Neography.configure do |config|
   config.protocol           =  Rails.env == "production" ? ENV["NEO4J_PROTOCOL"] : "http://"
-  config.server             = "localhost"
-  config.port               = Rails.env == "production" ? ENV["NEO4J_PROTOCOL"] : 7474
+  config.server             = Rails.env == "production" ? ENV["NEO4J_SERVER"] : "localhost"
+  config.port               = Rails.env == "production" ? ENV["NEO4J_PORT"] : 7474
   config.directory          = ""  # prefix this path with '/'
   config.cypher_path        = "/cypher"
   config.gremlin_path       = "/ext/GremlinPlugin/graphdb/execute_script"
