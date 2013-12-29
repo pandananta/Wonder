@@ -3,7 +3,7 @@
 		<h1><%= @note["prompt"] %></h1>
 		<h2><%= @note["body"] %></h2>
 	 <div id = "note-upper">	
-		<button class="btn btn-small btn-warning" onclick="displayNotebookList()">Link to this note</button>
+		<button class="btn btn-small btn-inverse" onclick="displayNotebookList()">Link to this note</button>
 	</div>
 	<div class = "linked-container">	
 		<h3>Linked notes</h3>
@@ -34,7 +34,7 @@
 <script type = "text/javascript">
 function displayNotebookList(){
 	var str = "<select id='selector'><% @notes.each do |n|%><option value = <%= n[0]['data']['uid'] %>><%= n[0]['data']['prompt']%></option><% end %></select>"
-	var btn = "<br><button class='btn btn-small btn-warning' onclick='linklink()'>Go</button>"
+	var btn = "<br><button class='btn btn-small btn-inverse' onclick='linklink()'>Go</button>"
 	document.getElementById('note-upper').innerHTML=str +btn;
 }
 function linklink(){
@@ -45,9 +45,13 @@ function linklink(){
 	console.log(n1);
 	console.log(n2);
 	console.log(n1txt);
-
-
 	alert("This note will now be listed in the LINKED section of your note entitled: \""+n1txt+"\".");
-	window.location = "/notes/"+n1;
+	$.ajax({
+	    url: "/relationships",
+	    type: "POST",
+	    data: {
+	             uid1: n1, 
+	             uid2: n2}
+	});
 }
 </script>
