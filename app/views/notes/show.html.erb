@@ -5,6 +5,7 @@
 	 <div id = "note-upper">	
 		<button class="btn btn-small btn-inverse" onclick="displayNotebookList()">Link to this note</button>
 	</div>
+	<br><br>
 	<div class = "linked-container">	
 		<h3>Linked notes</h3>
 		<% if @linked_notes.empty? %>
@@ -33,7 +34,7 @@
 
 <script type = "text/javascript">
 function displayNotebookList(){
-	var str = "<select id='selector'><% @notes.each do |n|%><option value = <%= n[0]['data']['uid'] %>><%= n[0]['data']['prompt']%></option><% end %></select>"
+	var str = "<br><p>Pick a note from your notebook which will link to this note</p><select id='selector'><% @notes.each do |n|%><option value = <%= n[0]['data']['uid'] %>><%= n[0]['data']['prompt']%></option><% end %></select>"
 	var btn = "<br><button class='btn btn-small btn-inverse' onclick='linklink()'>Go</button>"
 	document.getElementById('note-upper').innerHTML=str +btn;
 }
