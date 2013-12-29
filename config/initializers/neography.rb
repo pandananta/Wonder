@@ -1,7 +1,7 @@
 Neography.configure do |config|
-  config.protocol           = "http://"
+  config.protocol           =  Rails.env == "production" ? ENV["NEO4J_PROTOCOL"] : "http://"
   config.server             = "localhost"
-  config.port               = 7474
+  config.port               = Rails.env == "production" ? ENV["NEO4J_PROTOCOL"] : 7474
   config.directory          = ""  # prefix this path with '/'
   config.cypher_path        = "/cypher"
   config.gremlin_path       = "/ext/GremlinPlugin/graphdb/execute_script"
@@ -10,7 +10,7 @@ Neography.configure do |config|
   config.slow_log_threshold = 0    # time in ms for query logging
   config.max_threads        = 20
   config.authentication     = nil  # 'basic' or 'digest'
-  config.username           = nil
-  config.password           = nil
+  config.username           = ENV["NEO4J_USERNAME"]
+  config.password           = ENV["NEO4J_PASSWORD"]
   config.parser             = MultiJsonParser
 end
