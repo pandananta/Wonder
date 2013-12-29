@@ -15,7 +15,7 @@
  */
 
 html{height:100%;}
-body{height:100%;margin:0;	background-color: #4c8ae8;}
+body{height:100%; margin:0;	background-color: #4c8ae8;}
 .titles{
 	text-align: center;
 }
@@ -63,7 +63,7 @@ iframe{
   	border-left: #c00 0px dotted;
   	border-bottom: #c00 0px dotted;
   	background-color: #4c8ae8;
-  	min-height: 100%;s
+  	min-height: 100%;
 }
 
 ul{
