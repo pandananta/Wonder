@@ -8,6 +8,7 @@ class Relationship
 			MATCH (a:Note),(b:Note)
 			WHERE a.uid = {uid1} 
 			AND b.uid = {uid2}
+			AND NOT(a-[:linked]->b)
 			CREATE (a)-[r:linked]->(b)
 			RETURN r", {
 				"uid1" => uid1,
