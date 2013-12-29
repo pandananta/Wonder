@@ -45,7 +45,6 @@ function linklink(){
 	console.log(n1);
 	console.log(n2);
 	console.log(n1txt);
-	alert("This note will now be listed in the LINKED section of your note entitled: \""+n1txt+"\".");
 	$.ajax({
 	    url: "/relationships",
 	    type: "POST",
@@ -53,5 +52,7 @@ function linklink(){
 	             uid1: n1, 
 	             uid2: n2}
 	});
+	alert("This note will now be listed in the LINKED section of your note entitled: \""+n1txt+"\".");
+	window.location = "/notes/"+n1;
 }
 </script>

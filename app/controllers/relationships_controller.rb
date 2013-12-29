@@ -7,7 +7,7 @@ class RelationshipsController < ApplicationController
     
     respond_to do |format|
       if @rel.save
-        format.html { redirect_to "/notes/#{@rel.uid1}"}
+        format.html { redirect_to("/notes/#{@rel.uid1}")}
       else
         format.html { redirect_to "/"}
       end
