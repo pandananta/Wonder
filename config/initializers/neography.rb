@@ -9,7 +9,7 @@ Neography.configure do |config|
   config.log_enabled        = false
   config.slow_log_threshold = 0    # time in ms for query logging
   config.max_threads        = 20
-  config.authentication     = nil  # 'basic' or 'digest'
+  config.authentication     = 'basic'  # 'basic' or 'digest'
   config.username           = ENV["NEO4J_USERNAME"]
   config.password           = ENV["NEO4J_PASSWORD"]
   config.parser             = MultiJsonParser
