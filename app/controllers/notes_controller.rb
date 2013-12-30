@@ -26,7 +26,7 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new
-    @note.prompt = params[:note]["prompt"] 
+    @note.prompt = params[:note]["prompt"]+" " 
     @note.body = params[:note]["body"] 
     # = Note.new(params[:note])
     
