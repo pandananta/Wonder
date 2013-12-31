@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_filter :download_notebook  
 
   def download_notebook
-    @notes = @@neo.execute_query("MATCH (n:Note) RETURN n")["data"]
+    @notes = @@neo.execute_query("MATCH (n:Note) RETURN n ORDER BY n.created_at")["data"]
   end
 
   def index    
