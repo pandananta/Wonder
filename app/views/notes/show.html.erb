@@ -48,10 +48,10 @@ function linklink(){
 	$.ajax({
 	    url: "/relationships",
 	    type: "POST",
-	    data: {
-	             uid1: n1, 
-	             uid2: n2}
+	    data: {uid1: n1, uid2: n2},
+	    success: function(){
+        	window.location = "/notes/"+n1;
+        }
 	});
-	window.location = "/notes/"+n1;
 }
 </script>
