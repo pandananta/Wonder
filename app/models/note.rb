@@ -37,7 +37,7 @@ class Note
 		words = words.gsub(/\s+/m, ' ').gsub(/^\s+|\s+$/m, '').split(" ")
 		words.each do |cur|
 			w = Word.new
-			w.str = cur
+			w.str = cur.stem
 			w.save
 			@@neo.execute_query(
 				"
@@ -47,7 +47,7 @@ class Note
 				CREATE (a)-[r:contains]->(b)
 				RETURN r", {
 					"uid" => uid,
-					"str" => cur
+					"str" => w.str
 				})
 			@@neo.execute_query(
 				"
@@ -57,7 +57,7 @@ class Note
 				CREATE (b)-[r:comprises]->(a)
 				RETURN r", {
 					"uid" => uid,
-					"str" => cur
+					"str" => w.str
 			})
 		end
 	end
