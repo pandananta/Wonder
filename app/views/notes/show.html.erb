@@ -32,7 +32,8 @@
 
 <script type = "text/javascript">
 function displayNotebookList(){
-	var str = "<br><p>Pick a note from your notebook which will link to this note</p><select id='selector'><% @notes.each do |n|%><option value = <%= n[0]['data']['uid'] %>><%= n[0]['data']['prompt']%></option><% end %></select>"
+	var str = "<br><p>Pick a note from your notebook which will link to this note</p>"
+	str += "<select id='selector'><% @notes.each do |n| if(n[0]['data']['uid'] != @note['uid'])%><option value = <%= n[0]['data']['uid'] %>><%= n[0]['data']['prompt']%></option><% end end %></select>"
 	var btn = "<br><button class='btn btn-small btn-inverse' onclick='linklink()'>Go</button>"
 	document.getElementById('note-upper').innerHTML=str +btn;
 }
